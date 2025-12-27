@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Amazon Clone</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+body{
+    background:#f3f3f3;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+
+.header{
+    background:#131921;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 30px;
+}
+.logo{
+    font-size:26px;
+    font-weight:bold;
+}
+.search-box{
+    display:flex;
+    width:50%;
+}
+.search-box input{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:4px 0 0 4px;
+}
+.search-box button{
+    padding:10px 20px;
+    border:none;
+    background:#febd69;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:0 4px 4px 0;
+}
+.search-box button:hover{
+    background:#f3a847;
+}
+
+
+.navbar{
+    background:#232f3e;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 30px;
+}
+.nav-left a{
+    color:white;
+    text-decoration:none;
+    margin-right:15px;
+    padding:6px 12px;
+    border-radius:4px;
+    font-size:14px;
+}
+.nav-left a:hover{
+    background:#37475a;
+    color:#febd69;
+}
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.wishlist-btn{
+    background:white;
+    border:none;
+    font-size:18px;
+    padding:8px 12px;
+    border-radius:50%;
+    cursor:pointer;
+}
+.cart-btn{
+    background:#ffd814;
+    border:none;
+    padding:8px 18px;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+.banner{
+    margin:20px;
+    height:260px;
+    background:linear-gradient(135deg,#ff512f,#f09819);
+    color:black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    font-weight:bold;
+    border-radius:12px;
+    position:relative;
+}
+.banner span{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:red;
+    padding:10px 22px;
+    border-radius:30px;
+    font-size:22px;
+}
+
+
+.categories{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:30px;
+    flex-wrap:wrap;
+    background-color: #0599c2;
+}
+.category{
+    width:220px;
+    height:110px;
+    background:rgb(177, 231, 231);
+    color:black;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+.category:hover{
+    background:#febd69;
+    transform:translateY(-6px);
+}
+
+
+.products{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:30px;
+    flex-wrap:wrap;
+    flex:1;
+}
+.product{
+    background:white;
+    width:230px;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    transition:0.3s;
+    position:relative;
+}
+.product:hover{
+    transform:translateY(-8px);
+}
+.product img{
+    width:100%;
+    height:170px;
+    object-fit:contain;
+}
+.product h4{
+    margin:10px 0;
+}
+.product p{
+    color:#b12704;
+    font-weight:bold;
+}
+.product button{
+    width:100%;
+    padding:10px;
+    border:none;
+    background:#ffd814;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.product button:hover{
+    background:#f7ca00;
+}
+.badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:#ff9900;
+    color:white;
+    padding:4px 10px;
+    font-size:12px;
+    border-radius:6px;
+}
+
+
+.footer{
+    background:#131921;
+    color:white;
+    padding:30px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    border-top:3px solid #37475a;
+}
+.footer-links a{
+    color:#ddd;
+    text-decoration:none;
+    margin-right:18px;
+    font-size:14px;
+}
+.footer-links a:hover{
+    color:#febd69;
+    text-decoration:underline;
+}
+.social img{
+    width:26px;
+    margin-right:12px;
+    transition:transform 0.3s;
+}
+.social img:hover{
+    transform:scale(1.2);
+}
+.copy{
+    width:100%;
+    text-align:center;
+    margin-top:15px;
+    font-size:13px;
+    color:#aaa;
+}
+
+
+@media(max-width:768px){
+    .search-box{ width:100%; }
+    .banner{ font-size:26px; }
+}
+
+.video-section{
+    width:100%;
+    background:rgb(23, 108, 226);
+    padding:20px;
+    display:flex;
+    justify-content:center;
+}
+
+.video-section iframe{
+    width:550%;
+    max-width:99500px;
+    height:450px;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(247, 247, 247, 0.4);
+    
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="header">
+    <div class="logo">Amazon</div>
+    <div class="search-box">
+        <input type="text" placeholder="Search Amazon">
+        <button>Search</button>
+    </div>
+</div>
+<hr>
+
+<div class="navbar">
+    <div class="nav-left">
+        
+    <a href="#">All</a>
+    <a href="#">Pay</a>
+    <a href="#">Fresh</a>
+    <a href="#">MX Player</a>
+    <a href="#">Bazaar</a>
+    <a href="#">Pharmacy</a>
+    <a href="#">Gift Cards</a>
+    <a href="#">Sell</a>
+    <a href="#">Customer Service</a>
+    <a href="#">Today's Deals</a>
+    <a href="#">Fresh</a>
+    <a href="#">Amazon pay</a>
+    <a href="#">Prime</a>
+
+    </div>
+
+    <hr>
+
+    <div class="nav-right">
+        <button class="wishlist-btn">❤️</button>
+        <button class="cart-btn">🛒 Cart</button>
+    </div>
+</div>
+
+
+<div class="banner">
+    <span>50% OFF</span>
+    <h3>Big Amazon Sale</h3>
+</div>
+
+<hr>
+
+<div class="categories">
+    <div class="category">Electronics</div>
+    <div class="category">Fashion</div>
+    <div class="category">Home Appliances</div>
+    <div class="category">Books</div>
+    <div class="category">Toys</div>
+    <div class="category">Sports</div>
+</div>
+
+<div class="video-section">
+    <h2>Special Amazon Offer</h2>
+    <iframe 
+        width="60" 
+        height="15" 
+        src="Amazon.mp4" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+    </iframe>
+</div>
+<br>
+<hr>
+<div class="products">
+    <div class="product">
+        <div class="badge">Best Seller</div>
+        <img src="https://m.media-amazon.com/images/I/51eIFIHTk8L._SY300_.jpg">
+        <h4>Laptop</h4>
+        <p>₹87,999</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/61CGHv6kmWL._SX522_.jpg">
+        <h4>Headphones</h4>
+        <p>₹1,999</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/71AvQd3VzqL._SX679_.jpg">
+        <h4>Smartphone</h4>
+        <p>₹45,999</p>
+        <button>Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/7138OS3wvyL._SX679_.jpg">
+        <h4>Smart Watch</h4>
+        <p>₹9,499</p>
+        <button>Add to Cart</button>
+    </div>
+        <div class="product">
+        <img src="https://m.media-amazon.com/images/I/711Rh9MsKvL._SX522_.jpg">
+        <h4>Toy Car</h4>
+        <p>₹499</p>
+        <button>Add to Cart</button>
+    </div>
+        <div class="product">
+        <img src="https://m.media-amazon.com/images/I/51O+J5jnXcL._SX522_.jpg">
+        <h4>Setaphile</h4>
+        <p>₹799</p>
+        <button>Add to Cart</button>
+    </div>
+            <div class="product">
+        <img src="https://m.media-amazon.com/images/I/61i+B1Oh3GL._SX522_.jpg">
+        <h4>TV Remote</h4>
+        <p>₹999</p>
+        <button>Add to Cart</button>
+    </div>
+        <div class="product">
+        <img src="https://m.media-amazon.com/images/I/41LdoZtQStL._SY300_SX300_QL70_FMwebp_.jpg">
+        <h4>Trolley Bags </h4>
+        <p>₹7,499</p>
+        <button>Add to Cart</button>
+    </div>  
+      <div class="product">
+        <img src="https://m.media-amazon.com/images/I/51nBTTG3hNL._SX679_.jpg">
+        <h4>TWS</h4>
+        <p>₹3,999</p>
+        <button>Add to Cart</button>
+    </div>
+    
+        <div class="product">
+        <img src="https://m.media-amazon.com/images/I/31HSfH1VceL._SY300_SX300_QL70_FMwebp_.jpg">
+        <h4>DJI Osmo Pocket 3, Vlogging Camera</h4>
+        <p>₹40,999</p>
+        <button>Add to Cart</button>
+    </div>
+        <div class="product">
+        <img src="https://m.media-amazon.com/images/I/41o8GzClVfL._SY300_SX300_QL70_FMwebp_.jpg">
+        <h4>Lifelong FitPro Motorized Treadmill</h4>
+        <p>₹15,999</p>
+        <button>Add to Cart</button>
+    </div>
+
+        <div class="product">
+        <img src="https://m.media-amazon.com/images/I/61NsrT3NclL._SX679_.jpg">
+        <h4>Corvids Portable and Compact 22 feet</h4>
+        <p>₹7,999</p>
+        <button>Add to Cart</button>
+    </div>
+
+        <div class="product">
+        <img src="https://m.media-amazon.com/images/I/410Uiqgx4-L._SY879_.jpg">
+        <h4>Dyson V8 Absolute Cordless Vacuum Cleaner</h4>
+        <p>₹14,999</p>
+        <button>Add to Cart</button>
+    </div>
+
+        <div class="product">
+        <img src="https://m.media-amazon.com/images/I/4185twNVPpL._SY445_SX342_QL70_FMwebp_.jpg">
+        <h4> Single Door Refrigerator</h4>
+        <p>₹15,499</p>
+        <button>Add to Cart</button>
+    </div>
+
+        <div class="product">
+        <img src="https://m.media-amazon.com/images/I/51qrzgQ3CzL._SY300_SX300_QL70_FMwebp_.jpg">
+        <h4>Painting</h4>
+        <p>₹777</p>
+        <button>Add to Cart</button>
+    </div>
+</div>
+
+
+<div class="footer">
+    <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Help</a>
+    </div>
+
+    <div class="social">
+        <a href="https://www.facebook.com/AmazonIN" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+        </a>
+        <a href="https://www.instagram.com/amazondotin/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+        </a>
+        <a href="https://x.com/amazonIN" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg">
+        </a>
+    </div>
+
+    <div class="My Project">
+        © 2025 Amazon Clone Project | Designed by Gorakh Sharma
+    </div>
+</div>
+
+</body>
+</html>
